@@ -1,0 +1,11 @@
+*build*
+*debug*
+*release*
+
+!*.sh
+!*.bat
+
+.directory
+*txt.user
+vc15*
+.vscode

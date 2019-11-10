@@ -1,0 +1,11 @@
+
+if (NOT OPENSSL_INCLUDE_DIR OR NOT OPENSSL_CRYPTO_LIBRARY)
+    find_package (OpenSSL REQUIRED)
+    message (STATUS "OPENSSL_VERSION: ${OPENSSL_VERSION}")
+endif (NOT OPENSSL_INCLUDE_DIR OR NOT OPENSSL_CRYPTO_LIBRARY)
+    message (STATUS "OPENSSL_INCLUDE_DIR: ${OPENSSL_INCLUDE_DIR}")
+include_directories (${OPENSSL_INCLUDE_DIR})
+
+
+add_executable(tests main.c)
+target_link_libraries(tests PUBLIC fipsrngtests ${OPENSSL_CRYPTO_LIBRARY})
